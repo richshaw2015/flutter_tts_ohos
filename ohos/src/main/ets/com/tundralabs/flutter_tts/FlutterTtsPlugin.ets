@@ -154,13 +154,8 @@ export default class FlutterTtsPlugin implements FlutterPlugin, MethodCallHandle
       let rate:number | null = Number(call.args);
       if(!rate) {
         rate = 1;
-      } else if(rate < 0.5){
-        rate = 0.5;
-      } else if(rate > 2) {
-        rate = 2;
-      } else {
-        rate *= 2;
       }
+      // 不限制参数值，也不 X2 处理
       this.speakExtraParams['speed'] = rate;
       result.success(1);
     } else if(call.method == 'setVolume') {
