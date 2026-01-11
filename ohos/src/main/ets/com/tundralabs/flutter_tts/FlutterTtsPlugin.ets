@@ -195,6 +195,9 @@ export default class FlutterTtsPlugin implements FlutterPlugin, MethodCallHandle
         this.speakExtraParams["queueMode"] = 0;
       }
       result.success(1);
+    } else if(call.method == 'setLanguage') {
+      // ohos TTS 仅支持 zh-CN
+      result.success(1);
     }
     else {
       result.notImplemented();
